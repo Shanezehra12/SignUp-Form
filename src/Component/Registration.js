@@ -12,8 +12,16 @@ function Registration() {
   const [organization, setOrganization] = useState("");
   const [experience, setExperience] = useState("");
 
-  const [selectedOption, setSelectedOption] = useState(0);
   const [isValid, setIsValid] = useState(false);
+
+  // Function for Down-Drops
+
+    const [dropdown1Value, setDropdown1Value] = useState('');
+    const [dropdown2Value, setDropdown2Value] = useState('');
+    const [dropdown3Value, setDropdown3Value] = useState('');
+    const [dropdown4Value, setDropdown4Value] = useState('');
+    const [dropdown5Value, setDropdown5Value] = useState('');
+
 
     // Function to handle changes in the password
     const handlePasswordChange = (e) => {
@@ -35,11 +43,6 @@ function Registration() {
     setIsValid(
       isUppercaseValid && isLowercaseValid && isNumberValid && isSpecialCharValid
     );
-  };
-
-  // Function to handle changes in the dropdown selection
-  const handleSelectChange = (e) => {
-    setSelectedOption(e.target.value);
   };
 
   // Handle form submission
@@ -99,7 +102,7 @@ function Registration() {
 
         <div className="form-group">
           <label>Location</label>
-          <select value={selectedOption} onChange={handleSelectChange}>
+          <select value={dropdown1Value} onChange={(e) => setDropdown1Value(e.target.value)}>
             <option value=""></option>
             <option value="option1">Karachi</option>
             <option value="option2">Lahore</option>
@@ -116,7 +119,7 @@ function Registration() {
 
         <div className="form-group">
           <label>Education</label>
-          <select value={selectedOption} onChange={handleSelectChange}>
+          <select value={dropdown2Value} onChange={(e) => setDropdown2Value(e.target.value)}>
             <option value=""></option>
             <option value="option1">Matric</option>
             <option value="option2">Intermediate</option>
@@ -133,7 +136,7 @@ function Registration() {
 
         <div className="form-group">
           <label>Job Title</label>
-          <select value={selectedOption} onChange={handleSelectChange}>
+          <select value={dropdown3Value} onChange={(e) => setDropdown3Value(e.target.value)}>
             <option value=""></option>
             <option value="option1">Frontend</option>
             <option value="option2">Backend</option>
@@ -150,7 +153,7 @@ function Registration() {
 
         <div className="form-group">
           <label>Organization</label>
-          <select value={selectedOption} onChange={handleSelectChange}>
+          <select value={dropdown4Value} onChange={(e) => setDropdown4Value(e.target.value)}>
             <option value=""></option>
             <option value="option1">ABC Company</option>
             <option value="option2">GHI Company</option>
@@ -167,7 +170,7 @@ function Registration() {
 
         <div className="form-group">
           <label>Years of Experience</label>
-          <select value={selectedOption} onChange={handleSelectChange}>
+          <select value={dropdown5Value} onChange={(e) => setDropdown5Value(e.target.value)}>
             <option value=""></option>
             <option value="option1">2 Years</option>
             <option value="option2">5 Years</option>
