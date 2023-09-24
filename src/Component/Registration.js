@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "../Component/Regitration.css"; // Create a CSS file for styling
+import Facebook from "./Facebook";
+import Google from "./Google";
+import Linkedin from "./Linkedin";
 
 function Registration() {
   // Define state variables for form fields
@@ -16,19 +19,18 @@ function Registration() {
 
   // Function for Down-Drops
 
-    const [dropdown1Value, setDropdown1Value] = useState('');
-    const [dropdown2Value, setDropdown2Value] = useState('');
-    const [dropdown3Value, setDropdown3Value] = useState('');
-    const [dropdown4Value, setDropdown4Value] = useState('');
-    const [dropdown5Value, setDropdown5Value] = useState('');
+  const [dropdown1Value, setDropdown1Value] = useState("");
+  const [dropdown2Value, setDropdown2Value] = useState("");
+  const [dropdown3Value, setDropdown3Value] = useState("");
+  const [dropdown4Value, setDropdown4Value] = useState("");
+  const [dropdown5Value, setDropdown5Value] = useState("");
 
+  // Function to handle changes in the password
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
 
-    // Function to handle changes in the password
-    const handlePasswordChange = (e) => {
-      const newPassword = e.target.value;
-      setPassword(newPassword);
-
-  // Define regex patterns for each condition
+    // Define regex patterns for each condition
     const uppercasePattern = /(?=.*[A-Z])/;
     const lowercasePattern = /(?=.*[a-z])/;
     const numberPattern = /(?=.*\d)/;
@@ -41,7 +43,10 @@ function Registration() {
     const isSpecialCharValid = specialCharPattern.test(newPassword);
 
     setIsValid(
-      isUppercaseValid && isLowercaseValid && isNumberValid && isSpecialCharValid
+      isUppercaseValid &&
+        isLowercaseValid &&
+        isNumberValid &&
+        isSpecialCharValid
     );
   };
 
@@ -79,12 +84,15 @@ function Registration() {
             onChange={handlePasswordChange}
           />
           {isValid ? (
-        <span></span>
-      ) : (
-        <span style={{ color: 'black', fontSize: 14 }}>
-          Password must include uppercase and lowercase letters, a number, and a special character
-        </span>
-      )}
+            <span style={{ color: "green", fontSize: 14 }}>
+              Password Correct
+            </span>
+          ) : (
+            <span style={{ color: "red", fontSize: 14 }}>
+              Password must include uppercase and lowercase letters, a number,
+              and a special character
+            </span>
+          )}
         </div>
 
         {/* ///////////////////////////////////////////////////////////////////////////////////// */}
@@ -102,7 +110,10 @@ function Registration() {
 
         <div className="form-group">
           <label>Location</label>
-          <select value={dropdown1Value} onChange={(e) => setDropdown1Value(e.target.value)}>
+          <select
+            value={dropdown1Value}
+            onChange={(e) => setDropdown1Value(e.target.value)}
+          >
             <option value=""></option>
             <option value="option1">Karachi</option>
             <option value="option2">Lahore</option>
@@ -119,7 +130,10 @@ function Registration() {
 
         <div className="form-group">
           <label>Education</label>
-          <select value={dropdown2Value} onChange={(e) => setDropdown2Value(e.target.value)}>
+          <select
+            value={dropdown2Value}
+            onChange={(e) => setDropdown2Value(e.target.value)}
+          >
             <option value=""></option>
             <option value="option1">Matric</option>
             <option value="option2">Intermediate</option>
@@ -136,7 +150,10 @@ function Registration() {
 
         <div className="form-group">
           <label>Job Title</label>
-          <select value={dropdown3Value} onChange={(e) => setDropdown3Value(e.target.value)}>
+          <select
+            value={dropdown3Value}
+            onChange={(e) => setDropdown3Value(e.target.value)}
+          >
             <option value=""></option>
             <option value="option1">Frontend</option>
             <option value="option2">Backend</option>
@@ -153,7 +170,10 @@ function Registration() {
 
         <div className="form-group">
           <label>Organization</label>
-          <select value={dropdown4Value} onChange={(e) => setDropdown4Value(e.target.value)}>
+          <select
+            value={dropdown4Value}
+            onChange={(e) => setDropdown4Value(e.target.value)}
+          >
             <option value=""></option>
             <option value="option1">ABC Company</option>
             <option value="option2">GHI Company</option>
@@ -170,7 +190,10 @@ function Registration() {
 
         <div className="form-group">
           <label>Years of Experience</label>
-          <select value={dropdown5Value} onChange={(e) => setDropdown5Value(e.target.value)}>
+          <select
+            value={dropdown5Value}
+            onChange={(e) => setDropdown5Value(e.target.value)}
+          >
             <option value=""></option>
             <option value="option1">2 Years</option>
             <option value="option2">5 Years</option>
@@ -189,10 +212,9 @@ function Registration() {
         </div>
 
         <div className="image-style">
-          <img style={{ marginLeft: 70 }}
-          src="https://www.citypng.com/public/uploads/preview/-11597077689odjmrfmvei.png" alt="#"/>
-          <img src="https://icons-for-free.com/download-icon-fb+icon+icon-1320194641178775596_512.png" alt="#" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/1200px-LinkedIn_icon_circle.svg.png" alt="#"/>
+          <Facebook />
+          <Google />
+          <Linkedin />
         </div>
 
         <div className="text">

@@ -84,13 +84,16 @@ body {
   }
 
   .image-style {
-    flex-direction: row;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
   }
 
   img {
     width: 40px;
     height: 40px;
-    margin-right: 50px;
+    
   }
 
   .text {
